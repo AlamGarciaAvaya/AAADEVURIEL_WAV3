@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<service xmlns="http://archiveschemas.aus.avaya.com/properties"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://archiveschemas.aus.avaya.com/properties properties.xsd"
+    name="${serviceName}" version="${serviceVersion}" application="${serviceName}-${serviceVersion}">
+	<smgr>
+		<description>My Service</description>
+		<orig_order>1</orig_order>
+		<orig_group>1</orig_group>
+		<fs_component>true</fs_component>
+		
+		<!-- Please uncomment and update the below example attribute if you would like to use attributes
+		<attribute name="exampleProperty">
+			<displayName>Example Property Name</displayName>
+			<helpInfo>This is an example Property. Please refer to the xsd for details on more attribute types</helpInfo>
+			<global>false</global>
+			<validation name="AnyString">
+				<type>STRING</type>
+			</validation>
+			<portlet_changeable>false</portlet_changeable>
+			<admin_visible>true</admin_visible>
+			<admin_changeable>true</admin_changeable>
+			<factory>
+				<value>Example Value</value>
+				<user_changeable>true</user_changeable>
+			</factory>
+		</attribute> 
+		-->
+		
+		<!-- Please uncomment and update the below example if you would like to use attribute_overrides.
+		Please validate your XML against the latest XSD for correctness and also developer guide to learn more.
+		<attribute_overrides>
+			<attribute_override>
+				<factory_override name="exampleattributename">
+					<displayName>exampleattributedisplayname</displayName>
+					<type>STRING</type>
+					<validation name="type">
+						<type>STRING</type>
+					</validation>
+					<admin_visible>false</admin_visible>
+					<admin_changeable>false</admin_changeable>
+					<factory>
+						<value>example_value</value>
+						<user_changeable>false</user_changeable>
+					</factory>
+				</factory_override>
+				<override_snapin_attribute> 
+					<snapin_name>example_snapinA</snapin_name>
+					<attribute_name>example_snapinA_attribute_name</attribute_name>
+        		</override_snapin_attribute>
+        	</attribute_override>
+        </attribute_overrides>
+		-->
+		
+	</smgr>
+	<!-- <log_space>10MB</log_space> -->
+</service>
