@@ -15,7 +15,8 @@ var btn_borrar = document.getElementById('btn_borrar');
 var inputBuscador = document.getElementById('buscador');
 var totalRegistros = document.getElementById('total');
 
-
+//BOTON PARA BORRAR TODOS 24 / 09 /2018
+var checkTodos = document.getElementById('borrar_todos');
 
 
 actualizarRegistro();
@@ -186,7 +187,7 @@ function actualizarRegistro() {
 function eliminarHTML(grabacion_borrada) {
     console.log(grabacion_borrada);
     for (i = 0; i < grabacion_borrada.length; i++) {
-        var elementoBorrar = document.getElementById(grabacion_borrada);
+        var elementoBorrar = document.getElementById(grabacion_borrada[i]);
         console.log(elementoBorrar);
         tableBody[0].removeChild(elementoBorrar);
         actualizarNumero();
@@ -240,10 +241,10 @@ function contactosEliminar(grabaciones) {
             }
         }
     });
-
-    xhr.open("DELETE", "https://breeze2-132.collaboratory.avaya.com/services/AAADEVURIEL_WAV3/FileSaveServlet/web/Grabaciones/" + grabaciones[0]);
+    for(i = 0; i<= grabaciones.length -1 ; i++){
+    xhr.open("DELETE", "https://breeze2-132.collaboratory.avaya.com/services/AAADEVURIEL_WAV3/FileSaveServlet/web/Grabaciones/" + grabaciones[i]);
     xhr.send(data);
-
+    }
 
 }
 /**
@@ -323,4 +324,22 @@ btn_borrar.addEventListener('click', function () {
 
 inputBuscador.addEventListener('input', function (){
    ocultarRegistros(this.value);
+});
+
+
+//Boton para borrar todos los elementos 24 / 09 /2018 
+checkTodos.addEventListener('click', function (){
+    if(this.checked){
+        var todosRegistros = tableBody[0].getElementsByTagName('tr');
+        for(var i = 0; i < checkBoxes.length; i++){
+            checkBoxes[i].checked = true;
+            todosRegistros[i].classList.add('activo');
+        }
+    }else{
+        var todosRegistros = tableBody[0].getElementsByTagName('tr');
+        for(var i = 0; i < checkBoxes.length; i++){
+            checkBoxes[i].checked = false;
+            todosRegistros[i].classList.remove('activo');
+        }
+    }
 });
