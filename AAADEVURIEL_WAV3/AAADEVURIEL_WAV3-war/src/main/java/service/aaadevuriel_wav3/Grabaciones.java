@@ -78,7 +78,8 @@ public class Grabaciones extends HttpServlet {
     }
 
     private void setAccessControlHeaders(HttpServletResponse response) {
-        response.setHeader("Access-Control-Allow-Origin", "https://135.169.18.7");
+    	response.setHeader("Access-Control-Allow-Origin", "*");
+//        response.setHeader("Access-Control-Allow-Origin", "https://135.169.18.7");
         response.setHeader("Access-Control-Allow-Credentials", "true");
         response.setHeader("Access-Control-Allow-Methods", "GET, POST, DELETE, PUT");
         response.setHeader("Access-Control-Allow-Headers", "Content-Type, Accept, X-Requested-With");
